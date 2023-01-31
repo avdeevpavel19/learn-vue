@@ -1,20 +1,20 @@
 <template>
   <div class="app">
     <h3>Создать пост</h3>
-    <form>
-      <input class="input" type="text"
+    <form @submit.prevent>
+      <input v-model="title" class="input" type="text"
              placeholder="Введите название">
-      <input class="input" type="text"
+      <input v-model="content" class="input" type="text"
              placeholder="Введите контент">
-      <button class="btn">Добавить</button>
+      <button @click="createPost" class="btn">Добавить</button>
     </form>
 
     <div class="posts">
       <h3>Список постов</h3>
 
-      <div class="post">
-        <div><strong>Название:</strong> это название поста</div>
-        <div><strong>Контент:</strong> это контент поста</div>
+      <div class="post" v-for="post in posts">
+        <div><strong>Название:</strong> {{ post.title }}</div>
+        <div><strong>Контент:</strong> {{ post.content }}</div>
       </div>
     </div>
   </div>
@@ -22,7 +22,27 @@
 
 <script>
 export default {
-  name: "App"
+  name: "App",
+
+  data() {
+    return {
+      posts: [
+        {id: Date.now(), title: 'Это название поста 1', content: 'Это контент поста 1'},
+        {id: Date.now(), title: 'Это название поста 2', content: 'Это контент поста 2'},
+        {id: Date.now(), title: 'Это название поста 3', content: 'Это контент поста 3'},
+      ]
+    }
+  },
+
+  methods: {
+    createPost() {
+      let newPost = {id: Date.now, title: this.title, content: this.content}
+
+      this.posts.push(newPost)
+      this.title = ''
+      this.content = ''
+    }
+  }
 }
 </script>
 
