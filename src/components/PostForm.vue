@@ -1,10 +1,10 @@
 <template>
   <h3>Создать пост</h3>
   <form @submit.prevent>
-    <input v-model="post.title" class="input" type="text"
-           placeholder="Введите название">
-    <input v-model="post.content" class="input" type="text"
-           placeholder="Введите контент">
+    <my-input v-model:yoIsMyValue="post.title" type="text"
+              placeholder="Введите название"></my-input>
+    <my-input v-model:yoIsMyValue="post.content" type="text"
+              placeholder="Введите контент"></my-input>
     <my-button @click="createPost" class="btn" style="margin-top: 10px;">Добавить</my-button>
   </form>
 </template>
@@ -12,8 +12,10 @@
 <script>
 
 
+import MyInput from "@/components/UI/MyInput.vue";
+
 export default {
-  name      : "PostForm",
+  name: "PostForm",
 
   data() {
     return {
@@ -38,10 +40,5 @@ export default {
 </script>
 
 <style scoped>
-.input {
-  border: 1px solid teal;
-  padding: 10px 15px;
-  margin-top: 15px;
-  width: 100%;
-}
+
 </style>
