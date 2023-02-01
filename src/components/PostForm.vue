@@ -5,13 +5,15 @@
            placeholder="Введите название">
     <input v-model="post.content" class="input" type="text"
            placeholder="Введите контент">
-    <button @click="createPost" class="btn">Добавить</button>
+    <my-button @click="createPost" class="btn" style="margin-top: 10px;">Добавить</my-button>
   </form>
 </template>
 
 <script>
+
+
 export default {
-  name: "PostForm",
+  name      : "PostForm",
 
   data() {
     return {
@@ -39,16 +41,6 @@ export default {
 .input {
   border: 1px solid teal;
   padding: 10px 15px;
-  margin-top: 15px;
-  width: 100%;
-}
-
-.btn {
-  padding: 10px 15px;
-  background: none;
-  color: teal;
-  border: 1px solid teal;
-  cursor: pointer;
   margin-top: 15px;
   width: 100%;
 }
