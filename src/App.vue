@@ -25,11 +25,7 @@ export default {
 
   data() {
     return {
-      posts: [
-        {id: Date.now(), title: 'Это название поста 1', content: 'Это контент поста 1'},
-        {id: Date.now(), title: 'Это название поста 2', content: 'Это контент поста 2'},
-        {id: Date.now(), title: 'Это название поста 3', content: 'Это контент поста 3'},
-      ],
+      posts: [],
 
       dialogVisible: false
     }
